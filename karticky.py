@@ -8,12 +8,12 @@ class Karta:
         return f"Karta {self.nazev} se vzácností úrovně {self.kategorie}"
     
     def kde_mam_karticku(self, file):
-        with open(file, 'r') as f:
+        with open(file) as f:
             data = json.load(f)
-            self.kategorie = Karta['kategorie']
-            self.nazev = Karta['nazev']
+            self.kategorie = data["kategorie"]
+            self.nazev = data["nazev"]
     
-
-k = Karta("aha", "no nevim hele")
-k.kde_mam_karticku("vkapsicce.json")
+k = Karta("NaPikachu", "Treskyplesky")
+print(k)
+k.kde_mam_karticku('vkapsicce')
 print(k)
